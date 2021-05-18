@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>AJAX-SIMPLE</title> 
+
+<!-- meta -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Bocateria El Horno, tenemos las mejores bocatas de Bilbao, abierta las 24 horas">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+
+<!--[if IE]><link rel="shortcut icon" href="favicon.ico"><![endif]-->
+<link rel="apple-touch-icon-precomposed" href="apple-logohorno.png"><!-- tamano del archivo 180x180 -->
+<link rel="icon" href="direccionDeLaImagen" ><!-- tamaño 196x196 -->
+
+<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!--  los estilos se pueden colocar aqui o importarlos. en este caso los importamos   -->
+
+</head>
+<body>
+    <h1>mirar la consola</h1>
+<button onclick="helloWorld()">
+    Hello World
+</button>
+<button onclick="sendRequest()">
+    Send AJAX Request
+</button>
+<div id="container1"></div>
+<h2 id="container2"></h2>
+<script>
+    // function helloWorld(){
+    //     console.log("Hello World")
+    // }
+    function helloWorld(){
+        document.getElementById('container1').innerHTML = "Hola Mundo!!!";
+    }
+    
+      function sendRequest(){
+         var theObject = new XMLHttpRequest();
+          theObject.open('GET', 'backend.php', true);
+          theObject.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          theObject.onreadystatechange = function (){
+            document.getElementById('container2').innerHTML = theObject.responseText;
+          }
+       theObject.send();
+    }
+    
+</script>
+</body>
+</html>
+
+
+
